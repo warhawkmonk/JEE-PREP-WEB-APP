@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <title>SAGAR COACHING</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+		body,
+		html {
+			margin-top: 0;
+			padding: 0;
+			height: 100%;
+			background-size: 100%;
+            background-color: rgb(255, 196, 0);
+		}
+    </style>
+<body>
+
+<h1 align=center>Please fill all fields properly</h1>
+{% block content %}
+    <form action={% url 'select' %} method="POST" >{% csrf_token %}
+        <div align=center>
+            <input type="datetime-local" 
+            name="meeting-time"
+            min= date("Y-m-d") align=center required>
+            <br>
+            <p align=center>fill duration of exam</p>
+            <input type="number" name=duration min=1 and max=3 required>
+            <p align=center>student class</p>
+            <input type="number" name=std min=9 and max=13 required>
+        </div>
+        <br>
+        <br>
+    {% for i in send %}
+        <div align="center">
+            <img src={{i}}  width="500" height="200">
+            <br>
+            <input type="radio" id="A" name={{i}} value="A" required>
+            <label for="A">A</label>
+            <input type="radio" id="B" name={{i}} value="B" required>
+            <label for="B">B</label>
+            <input type="radio" id="C" name={{i}} value="C" required>
+            <label for="C">C</label>
+            <input type="radio" id="D" name={{i}} value="D" required>
+            <label for="D">D</label>
+        </div>
+        <br>
+    {% endfor %}
+    <div align=center>
+        <input type="submit" class="btn btn-danger">
+    </div>
+    </form>
+{% endblock %}
+<h2 align=center>Have a glance before submission</h2>
+<p align=right>POWERED by SAGAR COACHING</p>
+</body>
+</html>

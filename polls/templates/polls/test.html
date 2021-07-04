@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+		body,
+		html {
+			margin-top: 0;
+			padding: 0;
+			height: 100%;
+			background-size: 100%;
+            background-color: rgb(255, 196, 0);
+		}
+    </style>
+<body>
+    {% block content %}
+<div align=center>
+<h1>Please varify test</h1>
+<form action="{% url 'teacher' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+<button type="submit" name="monk" class="btn btn-default" value="{{rusertest}}">DELETE TEST</button>
+<a href="teacher"><button class="btn btn-default">RETURN</button></a>
+<br>
+
+    {% for i in zx %}
+        {% for j,x in i.items %}
+        <img src="{{j}}" height=200px width=500px>
+        <br>
+        GIVEN ANSWER OF ABOVE QUESTION:{{x}}
+        <br>
+        {% endfor %}
+    {% endfor %}
+{% endblock %}
+
+    </form>
+
+</div>
+<p align=right>POWERED by SAGAR COACHING</p>
+</body>
+</html>

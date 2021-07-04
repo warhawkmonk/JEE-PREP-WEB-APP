@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <title>SAGAR COACHING</title>
+    <style>
+        body,
+        html {
+            margin-top: 0;
+            padding: 0;
+            height: 100%;
+            background-size: 100%;
+            background-color: rgb(255, 196, 0);
+        }
+        .form-submit-button {
+            background: #050505;
+            color: white;
+            border-style: outset;
+            border-color: #000000;
+            height: 50px;
+            width: 100px;
+            font: bold 15px arial, sans-serif;
+            text-shadow:none;
+}
+    </style>
+<body>
+    {% block content %}
+    <p id="mnb"></p>
+    <p id="hi">{{song}}</p>
+<div align=center>
+    <h1>PLEASE SELECT ALL QUESTIONS WHILE SUBMITTING THE TEST</h1>
+    <h1>TEST</h1>
+    <p id="demo"></p>
+    <form action="{% url 'aftertest' %}" method="POST" enctype="multipart/form-data" id="monkvmn" name="monkvmn">{% csrf_token %}
+        
+            {% for i in question %}
+                <img src="{{i}}" height="200" width="500">
+                <br>
+                <input type="radio" id="A" name={{i}} value="A" required>
+                <label for="A">A</label>
+                <input type="radio" id="B" name={{i}} value="B" required>
+                <label for="B">B</label>
+                <input type="radio" id="C" name={{i}} value="C" required>
+                <label for="C">C</label>
+                <input type="radio" id="D" name={{i}} value="D" required>
+                <label for="D">D</label>
+                <br>
+            {% endfor %}
+        <button type="submit" name="long" id="long" value={{test}}>SUBMIT</button>
+    </form>
+</div>
+<script>
+    setInterval(myTimer, 1000);
+    
+    function myTimer() {
+      const d = new Date();
+      document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+    }
+    var sf=document.getElementById("hi").textContent
+    const timeout = setTimeout(long, sf* 1000);
+    function long()
+        {
+
+        var button=document.getElementById("long");
+        button.click();
+        }
+        </script>
+{% endblock %}
+<p align=right>POWERED by SAGAR COACHING</p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+    <title>SAGAR COACHING</title>
+<style>
+    body,
+    html {
+        margin-top: 0;
+        padding: 0;
+        height: 100%;
+        background-size: 100%;
+        background-color: rgb(255, 196, 0);
+    }
+    .form-submit-button {
+        background: #050505;
+        color: white;
+        border-style: outset;
+        border-color: #000000;
+        height: 50px;
+        width: 100px;
+        font: bold 15px arial, sans-serif;
+        text-shadow:none;
+}
+</style>
+<body>
+    <div align=center>
+        <h1>Test will start only at the given time</h1>
+        <h2>latest test result is at last</h2>
+        <h3>marks date time</h3>
+        {% block content %}
+            {% for i in score %}
+                {{i}}
+                <br>
+                <br>
+            {% endfor %}
+        {% endblock %}
+    </div>
+    <p align=right>POWERED by SAGAR COACHING</p>
+</body>
+</html>

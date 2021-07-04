@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>SAGER COACHING INSTITUTE</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<style>
+            body,
+            html {
+                margin-top: 0;
+                padding: 0;
+                height: 100%;
+                background-size: 100%;
+                background-color: rgb(255, 196, 0);
+                /* background-image: url('https://newevolutiondesigns.com/images/freebies/yellow-wallpaper-6.jpg') */
+            }
+            .form-submit-button {
+            background: #050505;
+            color: white;
+            border-style: outset;
+            border-color: #000000;
+            height: 50px;
+            width: 100px;
+            font: bold 15px arial, sans-serif;
+            text-shadow:none;
+}
+
+.button1 {background-color: #4CAF50;} 
+.ex2 {
+  background-color: rgba(173, 216, 230, 0);
+  width: 60%;
+  height: 30%;
+  overflow: auto;
+}/* Green */
+	</style>
+</head>
+<body>
+<div align=center>
+    
+<h1> SELECT PROPER QUESTION IMAGES</h1>
+<form action="{% url 'setup' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <input type="file" multiple name="uploadfoles" >
+    <button type="submit" class="btn btn-primary">File Upload</button>
+</form>
+    <h3>EDITS IN CREATED TESTS
+    </h3>
+    <form action="{% url 'test' %}" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <div align=center >
+        <div class="ex2">
+        {% block content %}
+            {% for i in path %}
+                <button type ="submit" name=testpo class="form-submit-button" value={{i}} >{{i}}</button>
+                <br>
+                <br>
+            {% endfor %}
+        {% endblock %}
+        </div>
+    </div>
+    </form>
+    <br>
+</div>
+<p align=right>POWERED by SAGAR COACHING</p>
+</body>
+</html>

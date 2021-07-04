@@ -7,7 +7,7 @@ from django.views.static import serve
 from django.conf.urls import url
 
 urlpatterns = [
-    path('sagar',views.sagar,name="sagar"),
+    path('',views.sagar,name="sagar"),
     path('register',views.register,name='register'),
     path('login',views.loginPage,name='login'),
     path('teacher',views.teacher,name='teacher'),

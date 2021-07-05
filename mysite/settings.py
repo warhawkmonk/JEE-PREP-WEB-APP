@@ -101,10 +101,7 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-ALLOWED_HOSTS = (
-    'your-app-name.herokuapp.com',
-    'localhost',
-)
+
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

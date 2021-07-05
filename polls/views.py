@@ -8,20 +8,14 @@ import math
 from collections import deque
 import sqlite3
 from datetime import datetime
-import cv2
 import time
-from PIL import Image
-import cv2
-import PIL.ImageOps    
 from django.views.generic import ListView
 import glob
-import numpy as np
 from django.shortcuts import render, redirect
 from numpy.core.fromnumeric import size
 from numpy.lib.type_check import imag
 from .forms import *
 from .models import *
-import matplotlib.pyplot as plt
 from django.contrib.auth.forms import UserCreationForm
 from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate,login,logout
